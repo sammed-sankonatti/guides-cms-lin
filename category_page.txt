@@ -1,0 +1,139 @@
+ <Grid container>
+            {categoriesWithArticles.map((item, index) => (
+              <Grid item md={3} lg={4} sm={12} key={index}>
+                <Card
+                  sx={{
+                    padding: 2,
+                    boxShadow: "none",
+                    border: "1px solid #ddd",
+                  }}
+                >
+                  {/* <Typography variant="h6" color="#003C46" fontWeight="700">
+                    {item.name}
+                  </Typography>
+                  <List sx={{ display: "flex", flexDirection: "column" }}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        height: "20rem",
+                        minWidth: "20rem",
+                      }}
+                    >
+                      {item.articles.slice(0, 7).map((article, index) => (
+                        <Link
+                          href={`/content/${article.id}_${article.title
+                            .split(" ")
+                            .join("-")}`}
+                          key={index}
+                        >
+                          <Typography
+                            variant="p"
+                            fontSize={"0.95rem"}
+                            lineHeight={"1.5 !important"}
+                            fontWeight={400}
+                            color="rgba(0, 109, 186, 1)"
+                            my={"1rem"}
+                          >
+                            {article.title}
+                          </Typography>
+                        </Link>
+                      ))}
+                      {item.articles.length !== 0 && (
+                        <Link href="/" style={{ margin: "2rem 0" }}>
+                          <Typography
+                            variant="p"
+                            fontSize={"0.95rem"}
+                            lineHeight={"1.5 !important"}
+                            fontWeight={600}
+                            color="rgba(0, 109, 186, 1)"
+                          >
+                            View More on {item.name} →
+                          </Typography>
+                        </Link>
+                      )}
+                    </Box>
+                  </List> */}
+
+                  <CardContent>
+                    <Typography variant="h6" fontWeight="bold" color="primary">
+                      {item.name}
+                    </Typography>
+                    {item.articles.slice(0, 7).map((article, index) => (
+                      <Typography key={index} variant="body2" color="primary">
+                        <Link href="#" underline="hover">
+                          {article.title}
+                        </Link>
+                      </Typography>
+                    ))}
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: "bold", marginTop: 1 }}
+                    >
+                      <Link href="#" underline="hover">
+                        View More on {item.name} →
+                      </Link>
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+
+
+
+
+
+
+
+Working code ::
+
+<Grid container spacing={3}>
+            {categoriesWithArticles.map((category, index) => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                key={index}
+                sx={{
+                  width: "100%",
+                  minWidth: "300px",
+                }}
+                spacing={3}
+              >
+                <Paper elevation={2} sx={{ p: 2, height: "100%" }}>
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    {category.name}
+                  </Typography>
+
+                  <List dense>
+                    {category.articles.slice(0, 7).map((article, linkIndex) => (
+                      <ListItem key={linkIndex} disablePadding>
+                        <Link
+                          href="/"
+                          underline="hover"
+                          color="inherit"
+                          sx={{
+                            width: "100%",
+                            px: 1,
+                            py: 0.5,
+                            "&:hover": {
+                              backgroundColor: "action.hover",
+                              borderRadius: 1,
+                            },
+                          }}
+                        >
+                          <ListItemText primary={article.title} />
+                        </Link>
+                      </ListItem>
+                    ))}
+                  </List>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>

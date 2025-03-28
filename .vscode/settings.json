@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/863e9bbe-0d93-4e29-8336-f4703eeb895f/resourceGroups/guides-cms/providers/Microsoft.Web/sites/guides-config",
+  "appService.deploySubpath": "."
+}
